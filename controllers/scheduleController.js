@@ -8,9 +8,9 @@ const path = require('path')
 const xlsToJSON = async (xlsFile) => {
     let fileName = uuid.v4() + ".xlsx"
 
-    await xlsFile.mv(path.resolve(__dirname, '..', 'app', 'static', fileName))
+    await xlsFile.mv(path.resolve(__dirname, 'static', fileName))
 
-    let workbook = XLSX.readFile(path.resolve(__dirname, '..', 'app', 'static', fileName))
+    let workbook = XLSX.readFile(path.resolve(__dirname, 'static', fileName))
 
     const worksheet = workbook.Sheets[workbook.SheetNames[0]]
 
