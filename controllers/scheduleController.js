@@ -93,14 +93,9 @@ class ScheduleController {
 
     async getAll(req, res, next) {
         try {
-            const schedules = Schedule.findAll({
-                include: [{
-                    model: Group,
-                    required: true
-                }]
-            })
+            const schedules = Schedule.findAll()
 
-            if (!schedules) return next(ApiError.notFound("рассписание отсутствует!"))
+            if (!schedules) return next(ApiError.notFound("Расписание отсутствует!"))
 
             return res.json(schedules)
         } catch (e) {
